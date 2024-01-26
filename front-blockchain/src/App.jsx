@@ -1,20 +1,22 @@
-import './App.css';
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import SignIn from "./Auth/Screens/Signin";
-import SignUp from "./Auth/Screens/Signup";
-import Home from "./Auth/Screens/Home";
- 
+import "./App.css";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import SignIn from "./Auth/Screens/Signin.jsx";
+import SignUp from "./Auth/Screens/Signup.jsx";
+import Login from "./Auth/Screens/Login.jsx";
+import Home from "./Home/Home.jsx";
+
 function App() {
   const email = localStorage.getItem("email");
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route exact path="/" element={<SignIn />} />
+          <Route path="/" element={<Home />} />
+          <Route exact path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route
-            path="/Home"
-            element={email ? <Home /> : <Navigate to="/" />}
+            path="/login"
+            element={email ? <Login /> : <Navigate to="/" />}
           />
         </Routes>
       </BrowserRouter>
@@ -23,4 +25,3 @@ function App() {
 }
 
 export default App;
-

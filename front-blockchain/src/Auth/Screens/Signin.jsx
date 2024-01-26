@@ -30,7 +30,7 @@ const login = async () => {
 	if (res.password === password) {
 		localStorage.setItem("email", email);
 		localStorage.setItem("account", accounts);
-		navigate("/Home");
+		navigate("/login");
 	} else {
 		alert("wrong user credentials or please signup");
 	}
@@ -76,7 +76,7 @@ return (
 	<span
 		style={{ cursor: "pointer" }}
 		onClick={() => {
-		navigate("/Signup");
+		navigate("/signup");
 		}}
 	>
 		{" "}

@@ -1,10 +1,12 @@
 import * as React from "react";
 import { loadBlockchainData, loadWeb3 } from "../Web3helpers";
-import { useNavigate } from "react-router-dom";
 
-export default function SignIn() {
+import { useNavigate } from "react-router-dom";
+export default function SignUp() {
+const [username, setUsername] = React.useState("");
 const [email, setEmail] = React.useState("");
 const [password, setPassword] = React.useState("");
+
 const navigate = useNavigate();
 
 const [accounts, setAccounts] = React.useState(null);
@@ -17,28 +19,28 @@ const loadAccounts = async () => {
 	setAuth(auth);
 };
 
-const login = async () => {
-	if (!email || !password) {
+const signUp = async () => {
+	if (!username || !email || !password) {
 	alert("please fill all details");
-
 	return;
 	}
-
-	try {
-	const res = await auth.methods.usersList(email).call();
-
-	if (res.password === password) {
-		localStorage.setItem("email", email);
-		localStorage.setItem("account", accounts);
-		navigate("/Home");
-	} else {
-		alert("wrong user credentials or please signup");
+	var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+	if (!email.match(mailformat)) {
+	alert("please enter valid email address");
+	return;
 	}
-	} catch (error) {
-	alert(error.message);
+	try {
+	await auth.methods
+		.createUser(username, email, password)
+		.send({ from: accounts });
+
+	localStorage.setItem("username", username);
+	localStorage.setItem("email", email);
+	navigate("/");
+	} catch (e) {
+	console.log(e.message);
 	}
 };
-
 React.useEffect(() => {
 	loadWeb3();
 }, []);
@@ -56,6 +58,13 @@ return (
 	/>
 	<input
 		style={input}
+		value={username}
+		onChange={(e) => setUsername(e.target.value)}
+		placeholder="Username"
+		type="text"
+	/>
+	<input
+		style={input}
 		value={email}
 		onChange={(e) => setEmail(e.target.value)}
 		placeholder="Email"
@@ -68,20 +77,10 @@ return (
 		placeholder="Password"
 		type="password"
 	/>
-	<button style={button} onClick={login}>
+	<button style={button} onClick={signUp}>
 		{" "}
-		Sign In
+		Sign Up
 	</button>
-
-	<span
-		style={{ cursor: "pointer" }}
-		onClick={() => {
-		navigate("/Signup");
-		}}
-	>
-		{" "}
-		Create new account{" "}
-	</span>
 	</div>
 );
 }
@@ -92,6 +91,7 @@ flexDirection: "column",
 alignItems: "center",
 justifyContent: "center",
 height: "100vh",
+width: "100vw"
 };
 
 const input = {

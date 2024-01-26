@@ -32,7 +32,7 @@ const networkId = await web3.eth.net.getId();
 if (networkId) {
 	const auth = new web3.eth.Contract(
 	Auth.abi,
-	Auth.networks[networkId].address
+	Auth.networks[networkId]?.address
 	);
 	return { auth, accounts: accounts[0] };
 }

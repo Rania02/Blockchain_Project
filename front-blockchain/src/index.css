@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+@import url("https://use.typekit.net/qit0zib.css");
 
 :root {
   font-family: "Space Grotesk", Inter, system-ui, Avenir, Helvetica, Arial,
@@ -8,7 +9,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: rgb(21, 21, 53);
+  background-color: rgb(10, 10, 25);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -21,14 +22,16 @@
 }
 
 #landing {
-  height: 80vh;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  align-items: center;
+  margin: 2rem auto;
+  max-width: 1024px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
 }
 
-#landing > * {
-  margin: 2rem;
+#landing>* {
+  text-align: center;
+  margin: auto;
 }
 
 a,
@@ -51,13 +54,15 @@ body {
 }
 
 h1 {
-  font-size: 4em;
+  font-size: 5em;
   line-height: 1;
+  font-weight: 900;
+  font-family: "josefin-sans";
 }
 
 button {
   border-radius: 8px;
-  border: 1px solid transparent;
+  border: 1px solid #f9f9f9;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
@@ -66,9 +71,11 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -77,6 +84,7 @@ button:focus-visible {
 ul#nav {
   display: flex;
 }
+
 ul#nav li {
   display: inline;
   border-radius: 8px;
@@ -88,37 +96,71 @@ ul#nav li {
   transition: border-color 0.25s;
 }
 
+.card {
+  border: 1px solid #f9f9f9;
+  padding: 3rem;
+  transition: background-color 0.25s;
+  max-width: 30%;
+}
+
+.card:hover {
+  background-color: #646cff;
+}
+
+.card>* {
+  gap: 1rem;
+}
+
+.container {
+  display: flex;
+  gap: 3em;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
     background-color: #ffffff;
   }
+
   button {
     background-color: #f9f9f9;
   }
+
   ul#nav li {
     color: #242424;
   }
+
   a,
   a:visited {
     color: #213547;
+  }
+
+  .card {
+    border: 1px solid;
+  }
+
+  .card:hover {
+    background-color: lightblue;
   }
 }
 
 @media screen and (max-width: 800px) {
   #landing {
-    grid-template-columns: 1fr;
     text-align: center;
   }
+
   h1 {
-    font-size: 3em;
+    font-size: 2em;
   }
+
   .main {
     padding: 0.1em;
   }
+
   button {
     padding: 0.5em 1em;
   }
+
   ul#nav li {
     padding: 0 0.4em;
   }

@@ -2,6 +2,7 @@ import Nav from "./Nav.jsx";
 import Card from "../components/Card.jsx";
 import Members from "../components/Members.jsx";
 import Partnair from "../components/Partenair.jsx";
+import { motion } from "framer-motion";
 
 export default function Home() {
   return (
@@ -9,6 +10,17 @@ export default function Home() {
       <Nav />
       <div className="main">
         <div id="landing">
+          <motion.div
+            initial={{ opacity: 0, y: 70 }}
+            animate={{
+              opacity: 1,
+              scale: 1,
+              y: 0,
+            }}
+            transition={{ ease: "easeOut", duration: 1 }}
+          >
+            <img src="/lct-square.svg" className="logo" />
+          </motion.div>
           <div>
             <h1>Libérez la vérité avec LiberaCatena</h1>
           </div>

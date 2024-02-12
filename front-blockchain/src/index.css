@@ -34,7 +34,7 @@ p {
   text-align: center;
 }
 
-#landing>* {
+#landing > * {
   text-align: center;
   margin: auto;
 }
@@ -113,7 +113,7 @@ ul#nav li {
   background-color: #646cff;
 }
 
-.card>* {
+.card > * {
   gap: 2rem;
 }
 

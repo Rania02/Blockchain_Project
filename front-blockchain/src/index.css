@@ -151,6 +151,8 @@ ul#nav li {
   filter: grayscale(100%) contrast(120%);
   border: solid 4px white;
   text-align: center;
+  background-color: white;
+  padding: 1rem 2rem;
 }
 
 .container {

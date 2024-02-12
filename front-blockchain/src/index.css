@@ -30,6 +30,8 @@ p {
   max-width: 1024px;
   display: flex;
   flex-direction: column;
+  margin: auto;
+  text-align: center;
 }
 
 #landing>* {

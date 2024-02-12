@@ -8,7 +8,9 @@ export default function Nav() {
           <Link to={`/`}>Home</Link>
         </li>
         <li>
-          <Link to={`/roadmap`}>Roadmap</Link>
+          <a href="https://ryandanion.notion.site/Roadmap-LiberaCatena-b77058edf6894de99a4eb4b288a0e3a3?pvs=4">
+            Roadmap
+          </a>
         </li>
         <li>
           <Link to={`/login`}>Login</Link>

@@ -22,14 +22,12 @@ p {
 }
 
 .main {
-  padding: 2em;
+  padding: 0 2em;
   margin: auto;
 }
 
 #landing {
-  margin: 2rem auto;
   max-width: 1024px;
-  padding: 2rem;
   display: flex;
   flex-direction: column;
 }
@@ -153,6 +151,8 @@ ul#nav li {
   filter: grayscale(100%) contrast(120%);
   border: solid 4px white;
   text-align: center;
+  background-color: white;
+  padding: 1rem 2rem;
 }
 
 .container {
@@ -161,6 +161,12 @@ ul#nav li {
   gap: 2em;
   flex-direction: row;
   justify-content: center;
+}
+
+.logo {
+  width: 10rem;
+  height: 10rem;
+  object-fit: contain;
 }
 
 @media (prefers-color-scheme: light) {
